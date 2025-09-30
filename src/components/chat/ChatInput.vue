@@ -1,0 +1,28 @@
+<template>
+  <form class="chat-input-area" @submit.prevent="handleSend">
+    <input
+      v-model="newMessage"
+      type="text"
+      placeholder="Ketik pesan Anda di sini..."
+    />
+    <button type="submit">Kirim</button>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const newMessage = ref('');
+
+// Mendefinisikan event 'sendMessage' yang akan di-emit ke parent
+const emit = defineEmits(['sendMessage']);
+
+function handleSend() {
+  if (newMessage.value.trim() !== '') {
+    // Mengirimkan event ke parent (ChatPage) dengan isi pesan
+    emit('sendMessage', newMessage.value);
+    // Mengosongkan input setelah dikirim
+    newMessage.value = '';
+  }
+}
+</script>

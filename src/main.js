@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+// Impor gaya global di sini
+import './assets/styles/App.css';
+
+createApp(App).mount('#app');
