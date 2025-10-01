@@ -79,27 +79,21 @@
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
-/* ... (semua kode CSS Anda yang sudah ada) ... */
-
-/* --- GAYA BARU UNTUK SCROLLBAR SIDEBAR --- */
-.sidebar .recent-list::-webkit-scrollbar {
-  width: 8px; /* Lebar scrollbar, bisa dibuat lebih ramping */
+.sidebar .recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+  min-height: 0; /* <-- PERBAIKAN KRUSIAL UNTUK SCROLL SIDEBAR */
 }
-
-/* Bagian track (latar belakang) scrollbar */
-.sidebar .recent-list::-webkit-scrollbar-track {
-  background: transparent; /* Latar belakang track dibuat transparan */
+.sidebar .recent-list .sidebar-item {
+  font-weight: normal;
+  color: var(--text-secondary);
 }
-
-/* Bagian thumb (yang bisa digeser) */
-.sidebar .recent-list::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-bg); /* Warna thumb yang lebih gelap */
-  border-radius: 4px; /* Sudut yang membulat */
-}
-
-/* Efek saat kursor di atas thumb */
-.sidebar .recent-list::-webkit-scrollbar-thumb:hover {
-  background-color: #4A5568; /* Warna saat hover */
+.sidebar .recent-list .sidebar-item:hover {
+  color: var(--text-primary);
 }
 .sidebar .sidebar-footer {
   margin-top: auto;
@@ -139,7 +133,7 @@
   height: 100vh;
   background-color: var(--primary-bg);
   position: relative;
-  overflow: hidden; /* Mencegah elemen anak meluap */
+  overflow: hidden;
 }
 
 /* --- HEADER UTAMA --- */
@@ -169,7 +163,7 @@
 .chat-window {
   flex-grow: 1;
   overflow-y: auto;
-  min-height: 0; /* PERBAIKAN KRUSIAL UNTUK SCROLL */
+  min-height: 0;
 }
 .message-container {
   width: 100%;
@@ -284,5 +278,20 @@
   border: 2px solid var(--primary-bg);
 }
 .chat-window::-webkit-scrollbar-thumb:hover {
+  background-color: #4A5568;
+}
+
+/* --- GAYA SCROLLBAR SIDEBAR --- */
+.sidebar .recent-list::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar .recent-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar .recent-list::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-bg);
+  border-radius: 4px;
+}
+.sidebar .recent-list::-webkit-scrollbar-thumb:hover {
   background-color: #4A5568;
 }
