@@ -2,7 +2,7 @@
   <div class="header-prompt">
     <h1 class="greeting">
       <span class="greeting-static">Halo, </span>
-      <span class="greeting-name">viorano</span>
+      <span class="greeting-name">Kompas</span>
     </h1>
     <p class="subtitle">Bagaimana saya bisa membantu Anda hari ini?</p>
     
