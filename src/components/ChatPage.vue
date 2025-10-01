@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue';
-import axios from 'axios'; // 1. IMPORT AXIOS
+import axios from 'axios'; 
 import Sidebar from './layout/Sidebar.vue';
 import Header from './layout/Header.vue';
 import HeaderPrompt from './layout/HeaderPrompt.vue';
@@ -28,7 +28,7 @@ import ChatWindow from './chat/ChatWindow.vue';
 import ChatInput from './chat/ChatInput.vue';
 import '@/assets/styles/ChatPage.css';
 
-// Data mock untuk history, Anda bisa biarkan seperti ini
+// Data mock 
 const chatHistory = reactive({
   'sejarah-indonesia': {
     title: "Sejarah Indonesia Merdeka",
@@ -71,7 +71,7 @@ function toggleSidebar() {
 }
 
 function handleNewChat() {
-  // Logic to save the current chat before starting a new one
+  // Logic to save the current chat
   if (messages.value.length > 0 && currentChatId.value) {
     chatHistory[currentChatId.value] = {
       title: chatHistory[currentChatId.value]?.title || "Percakapan Baru",
@@ -109,17 +109,15 @@ async function handleNewMessage(text) {
 
   isLoading.value = true; 
   try {
-    // 4. MAKE THE API CALL TO YOUR BACKEND
     const response = await axios.post('http://localhost:3000/api/chat', {
       prompt: text,
-      // You need a session ID. For now, we can use a placeholder or the current one.
       sessionId: currentChatId.value || 'new-session'
     });
 
     // Add the bot's response from the backend
     messages.value.push({
       id: Date.now() + 1,
-      text: response.data.response, // Use the response from the API
+      text: response.data.response, 
       sender: 'ai'
     });
 
@@ -132,7 +130,7 @@ async function handleNewMessage(text) {
       sender: 'ai'
     });
   } finally {
-    isLoading.value = false; // Stop loading
+    isLoading.value = false; 
   }
 }
 
