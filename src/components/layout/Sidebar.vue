@@ -26,7 +26,7 @@
         :key="chat.id" 
         @click="emit('loadChat', chat.id)"
       >
-        <span class="icon">📄</span>
+        <!-- <span class="icon">📄</span> -->
         <span class="text">{{ chat.title }}</span>
       </li>
     </ul>

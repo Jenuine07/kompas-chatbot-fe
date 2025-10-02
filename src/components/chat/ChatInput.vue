@@ -7,6 +7,10 @@
     />
     <button type="submit">Kirim</button>
   </form>
+  
+  <div class="ai-warning-footer">
+    <p>Kompas AI dapat membuat kesalahan. Pertimbangkan untuk memverifikasi informasi penting.</p>
+  </div>
 </template>
 
 <script setup>
