@@ -1,24 +1,17 @@
 :root {
-  /* Warna Latar Belakang Utama (Biru Tua) */
   --primary-bg: #0D1A2E; 
-  /* Latar Belakang Sekunder (Input, dll.) */
   --secondary-bg: #1E293B; 
-  /* Latar Belakang Sidebar (Biru Paling Gelap) */
   --sidebar-bg: #040D1A; 
 
-  /* Warna Teks */
   --text-primary: #FFFFFF;
-  --text-secondary: #A0AEC0; /* Abu-abu kebiruan untuk sub-teks */
+  --text-secondary: #A0AEC0; 
 
-  /* Warna Aksen Utama (Hijau Limau untuk Tombol) */
   --accent-color: #3B82F6; 
 
-  /* Warna Gelembung Chat */
-  --bubble-user-bg: #3B82F6; /* Biru cerah untuk pesan user */
-  --bubble-ai-bg: #1E293B;   /* Sama dengan bg sekunder untuk pesan AI */
+  --bubble-user-bg: #3B82F6; 
+  --bubble-ai-bg: #1E293B; 
 }
 
-/* ... sisa kode App.css (body, #app) tidak perlu diubah ... */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
