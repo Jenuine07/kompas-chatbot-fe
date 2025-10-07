@@ -18,14 +18,11 @@ import { ref } from 'vue';
 
 const newMessage = ref('');
 
-// Mendefinisikan event 'sendMessage' yang akan di-emit ke parent
 const emit = defineEmits(['sendMessage']);
 
 function handleSend() {
   if (newMessage.value.trim() !== '') {
-    // Mengirimkan event ke parent (ChatPage) dengan isi pesan
     emit('sendMessage', newMessage.value);
-    // Mengosongkan input setelah dikirim
     newMessage.value = '';
   }
 }

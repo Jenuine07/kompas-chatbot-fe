@@ -10,7 +10,6 @@
 <script setup>
 import profilePicture from '@/assets/profile.png';
 
-// Terima 'projectTitle' sebagai prop dari ChatPage.vue
 defineProps({
   projectTitle: {
     type: String,

@@ -23,7 +23,6 @@ const props = defineProps({
 
 const chatWindowRef = ref(null);
 
-// Logika auto-scroll tidak perlu diubah, karena ref-nya tetap di elemen terluar
 watch(
   () => props.messages,
   async () => {

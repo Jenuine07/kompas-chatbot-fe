@@ -5,8 +5,6 @@
 </template>
 
 <script setup>
-// Menerima 'message' sebagai prop dari parent (ChatWindow)
-// Prop ini berisi object: { id, text, sender: 'user' | 'ai' }
 defineProps({
   message: {
     type: Object,

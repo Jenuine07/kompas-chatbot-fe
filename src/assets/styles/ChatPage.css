@@ -1,11 +1,9 @@
-/* --- LAYOUT UTAMA --- */
 .chat-page-container {
   display: flex;
   height: 100vh;
   width: 100%;
 }
 
-/* --- SIDEBAR --- */
 .sidebar {
   width: 180px;
   background-color: var(--sidebar-bg);
@@ -19,7 +17,6 @@
   overflow: hidden;
 }
 
-/* --- ITEM GENERIC DI DALAM SIDEBAR --- */
 .sidebar-item {
   display: flex;
   align-items: center;
@@ -44,7 +41,6 @@
   flex-shrink: 0;
 }
 
-/* --- GAYA KHUSUS UNTUK LOGO & PANAH --- */
 .sidebar-item.logo {
   justify-content: flex-start;
   gap: 0.5rem;
@@ -68,7 +64,6 @@
   color: var(--text-secondary);
 }
 
-/* --- ATURAN LAIN UNTUK ITEM SIDEBAR --- */
 .sidebar .new-chat-btn {
   margin-bottom: 1rem;
 }
@@ -82,8 +77,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow-y: auto; /* KEMBALIKAN FUNGSI SCROLL DI SINI */
-  min-height: 0;   /* Tambahkan ini untuk memastikan scroll bekerja */
+  overflow-y: auto; 
+  min-height: 0; 
 }
 .sidebar .recent-list .sidebar-item {
   font-weight: normal;
@@ -96,7 +91,6 @@
   margin-top: auto;
 }
 
-/* --- KONDISI SAAT SIDEBAR TERTUTUP/MENYUSUT --- */
 .chat-page-container.sidebar-closed .sidebar {
   width: 50px;
 }
@@ -122,7 +116,6 @@
   display: none;
 }
 
-/* --- MAIN CONTENT --- */
 .main-content {
   flex-grow: 1;
   display: flex;
@@ -133,7 +126,6 @@
   overflow: hidden;
 }
 
-/* --- HEADER UTAMA --- */
 .main-header {
   width: 100%;
   box-sizing: border-box;
@@ -156,7 +148,6 @@
   object-fit: cover; 
 }
 
-/* --- AREA CHAT & SCROLLING --- */
 .chat-window {
   flex-grow: 1;
   overflow-y: auto;
@@ -174,7 +165,6 @@
   justify-content: flex-end;
 }
 
-/* --- ELEMEN CHAT (PROMPT & BUBBLE) --- */
 .header-prompt {
   flex-grow: 1;
   display: flex;
@@ -234,7 +224,6 @@
   font-size: 0.85rem;
 }
 
-/* --- INPUT AREA --- */
 .chat-input-area {
   width: 100%;
   max-width: 900px;
@@ -266,7 +255,6 @@
   font-size: 0.75rem;
 }
 
-/* --- GAYA SCROLLBAR --- */
 .chat-window::-webkit-scrollbar {
   width: 10px;
 }
@@ -283,7 +271,6 @@
   background-color: #4A5568;
 }
 
-/* --- GAYA SCROLLBAR SIDEBAR --- */
 .sidebar .recent-list::-webkit-scrollbar {
   width: 8px;
 }
@@ -298,7 +285,6 @@
   background-color: #4A5568;
 }
 
-/* --- GAYA TAMBAHAN UNTUK PERINGATAN DI BAWAH INPUT --- */
 .ai-warning-footer {
   width: 100%;
   max-width: 900px;
@@ -307,7 +293,6 @@
   box-sizing: border-box;
   text-align: center;
   
-  /* Styling teks agar mirip dengan gambar referensi */
   color: var(--text-secondary); 
   font-size: 0.75rem;
   opacity: 0.7; 
@@ -323,11 +308,11 @@
 }
 
 .sidebar .recent-list .sidebar-item .text {
-  white-space: nowrap;      /* Mencegah teks turun ke baris baru */
-  overflow: hidden;         /* Sembunyikan teks yang meluber */
-  text-overflow: ellipsis;  /* Ganti teks yang tersembunyi dengan "..." */
-  flex-grow: 1;             /* Pastikan elemen ini meregang */
-  min-width: 0;             /* Mencegah masalah flexbox dengan konten panjang */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;  
+  flex-grow: 1; 
+  min-width: 0; 
 }
 .history-groups-container {
   flex-grow: 1;
@@ -339,27 +324,25 @@
 .chat-group {
   display: flex;
   flex-direction: column;
-  min-height: 0; /* Penting untuk nested flexbox agar scroll berfungsi */
+  min-height: 0; 
 }
 .sidebar .recent-title.clickable {
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding: 0.5rem 0.75rem; /* Beri sedikit padding agar lebih mudah diklik */
+  padding: 0.5rem 0.75rem; 
   border-radius: 6px;
 }
 .sidebar .recent-title.clickable:hover {
   background-color: var(--secondary-bg);
 }
 
-/* Gaya untuk ikon panah */
 .dropdown-arrow {
   font-size: 0.6rem;
   transition: transform 0.2s ease-in-out;
 }
 
-/* Gaya untuk panah saat dropdown terbuka (berputar 90 derajat) */
 .dropdown-arrow.is-open {
   transform: rotate(90deg);
 }
