@@ -82,10 +82,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  flex-grow: 1;
-  min-height: 0; /* <-- PERBAIKAN KRUSIAL UNTUK SCROLL SIDEBAR */
+  overflow-y: auto; /* KEMBALIKAN FUNGSI SCROLL DI SINI */
+  min-height: 0;   /* Tambahkan ini untuk memastikan scroll bekerja */
 }
 .sidebar .recent-list .sidebar-item {
   font-weight: normal;
@@ -317,4 +315,51 @@
 
 .ai-warning-footer p {
   margin: 0; 
+}
+
+.header-title .project-divider {
+  color: var(--text-secondary);
+  margin: 0 0.5rem;
+}
+
+.sidebar .recent-list .sidebar-item .text {
+  white-space: nowrap;      /* Mencegah teks turun ke baris baru */
+  overflow: hidden;         /* Sembunyikan teks yang meluber */
+  text-overflow: ellipsis;  /* Ganti teks yang tersembunyi dengan "..." */
+  flex-grow: 1;             /* Pastikan elemen ini meregang */
+  min-width: 0;             /* Mencegah masalah flexbox dengan konten panjang */
+}
+.history-groups-container {
+  flex-grow: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-group {
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Penting untuk nested flexbox agar scroll berfungsi */
+}
+.sidebar .recent-title.clickable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem; /* Beri sedikit padding agar lebih mudah diklik */
+  border-radius: 6px;
+}
+.sidebar .recent-title.clickable:hover {
+  background-color: var(--secondary-bg);
+}
+
+/* Gaya untuk ikon panah */
+.dropdown-arrow {
+  font-size: 0.6rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Gaya untuk panah saat dropdown terbuka (berputar 90 derajat) */
+.dropdown-arrow.is-open {
+  transform: rotate(90deg);
 }
