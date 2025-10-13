@@ -92,19 +92,42 @@ function handleLoadChat(chatId) {
 
 async function handleNewMessage(text) {
   messages.value.push({ id: Date.now(), text: text, sender: 'user' });
-  if (!currentChatId.value) { currentChatId.value = `chat-${Date.now()}`; }
-  isLoading.value = true; 
+
+  if (!currentChatId.value) { 
+    currentChatId.value = `chat-${Date.now()}`; 
+  }
+
+  isLoading.value = true;
+
   try {
     const response = await axios.post('http://localhost:3000/api/chat', {
       prompt: text,
       sessionId: currentChatId.value,
       project: selectedProject.value
     });
+
+    const botReply = response.data?.response || "Tidak ada respons dari model.";
+
     messages.value.push({
       id: Date.now() + 1,
-      text: response.data.response, 
+      text: botReply,
       sender: 'ai'
     });
+
+    if (chatHistory[currentChatId.value]) {
+      chatHistory[currentChatId.value].messages.push({
+        id: Date.now() + 1,
+        text: botReply,
+        sender: 'ai'
+      });
+    } else {
+      chatHistory[currentChatId.value] = {
+        title: text.substring(0, 30),
+        messages: [...messages.value],
+        project: selectedProject.value
+      };
+    }
+
   } catch (error) {
     console.error("Error memanggil backend:", error);
     messages.value.push({
@@ -113,7 +136,8 @@ async function handleNewMessage(text) {
       sender: 'ai'
     });
   } finally {
-    isLoading.value = false; 
+    isLoading.value = false;
   }
 }
+
 </script>
