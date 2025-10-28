@@ -7,13 +7,16 @@
       :chats="recentChats"
       :isOpen="isSidebarOpen" 
     />
-    <main class="main-content">
+    <main class="main-content" :class="{ 'project-selector-active': !selectedProject }">
+
       <Header :projectTitle="selectedProject" />
 
       <ProjectSelector v-if="!selectedProject" @projectSelected="handleProjectSelection" />
 
       <template v-else>
-        <ChatWindow :messages="messages" :isLoading="isLoading" />
+        <ChatWindow 
+          :messages="messages" 
+          :isLoading="isLoading" />
         <ChatInput @sendMessage="handleNewMessage" />
       </template>
     </main>
@@ -84,7 +87,11 @@ function handleNewChat() {
 function handleLoadChat(chatId) {
   if (chatHistory[chatId]) {
     selectedProject.value = chatHistory[chatId].project;
-    messages.value = [...chatHistory[chatId].messages];
+    
+    messages.value = [
+      ...chatHistory[chatId].messages.map(msg => ({ ...msg, shouldAnimate: false }))
+    ];
+    
     currentChatId.value = chatId; 
     if (!isSidebarOpen.value) { isSidebarOpen.value = true; }
   }
@@ -111,7 +118,8 @@ async function handleNewMessage(text) {
     messages.value.push({
       id: Date.now() + 1,
       text: botReply,
-      sender: 'ai'
+      sender: 'ai',
+      shouldAnimate: true 
     });
 
     if (chatHistory[currentChatId.value]) {
@@ -133,7 +141,8 @@ async function handleNewMessage(text) {
     messages.value.push({
       id: Date.now() + 1,
       text: "Maaf, terjadi kesalahan saat menghubungi server.",
-      sender: 'ai'
+      sender: 'ai',
+      shouldAnimate: true 
     });
   } finally {
     isLoading.value = false;

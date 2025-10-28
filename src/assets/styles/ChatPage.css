@@ -121,9 +121,37 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: var(--primary-bg);
   position: relative;
   overflow: hidden;
+  background-color: var(--primary-bg);
+  background-image: 
+    radial-gradient(
+      ellipse 80% 60% at center, 
+      rgba(173, 216, 230, 0.25) 0%, 
+      rgba(10, 46, 102, 0) 55% 
+    );
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: auto; 
+  background-attachment: fixed;
+}
+
+.main-content.project-selector-active {
+  background-image: 
+    url('../dot-pattern2.png'), 
+    radial-gradient( 
+      ellipse 80% 60% at center, 
+      rgba(173, 216, 230, 0.25) 0%, 
+      rgba(10, 46, 102, 0) 55% 
+    );
+
+  background-position:
+    center center, 
+    center center; 
+
+  background-size:
+    57% auto, 
+    auto; 
 }
 
 .main-header {
@@ -165,14 +193,6 @@
   justify-content: flex-end;
 }
 
-.header-prompt {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 .header-prompt .greeting {
   font-size: 3.5rem;
   font-weight: 500;
@@ -248,11 +268,13 @@
 .chat-input-area button {
   background-color: var(--accent-color);
   border: none;
-  color: white;
+  color: #0d5575;
   padding: 0 1.5rem;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.75rem;
+  font-family: 'Poppins';
+  font-weight: bolder;
 }
 
 .chat-window::-webkit-scrollbar {
