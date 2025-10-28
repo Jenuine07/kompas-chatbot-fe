@@ -49,7 +49,7 @@ watch(
 </script>
 
 <style scoped>
-.typing-indicator :deep(.message-bubble.ai) {
+:deep(.message-bubble.ai.typing-indicator) {
   width: fit-content;
   animation: typing-pulse 1.5s infinite ease-in-out;
 }

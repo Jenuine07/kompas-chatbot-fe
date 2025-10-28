@@ -1,7 +1,7 @@
 <template>
   <div class="project-selector-container">
     <div class="header-prompt">
-      <h1>Halo, <span class="greeting-name">viorano</span></h1>
+      <h1>Halo, <span class="greeting-name">viorano!</span></h1>
       <p class="subtitle">Pilih basis data untuk memulai percakapan</p>
     </div>
 
